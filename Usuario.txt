@@ -1,0 +1,26 @@
+-- Table: public.usuario
+
+-- DROP TABLE IF EXISTS public.usuario;
+
+CREATE TABLE IF NOT EXISTS public.usuario
+(
+    usuario_id integer NOT NULL DEFAULT nextval('usuario_usuario_id_seq'::regclass),
+    nombre character varying(100) COLLATE pg_catalog."default",
+    fecha_n date,
+    correo character varying(100) COLLATE pg_catalog."default",
+    celular bigint,
+    fecha_a date,
+    hora_a time without time zone,
+    respuestas_id character varying(5) COLLATE pg_catalog."default",
+    CONSTRAINT usuario_pkey PRIMARY KEY (usuario_id),
+    CONSTRAINT respuestas_id FOREIGN KEY (respuestas_id)
+        REFERENCES public.respuestas (respuestas_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.usuario
+    OWNER to postgres;

@@ -1,0 +1,24 @@
+-- Table: public.respuestas
+
+-- DROP TABLE IF EXISTS public.respuestas;
+
+CREATE TABLE IF NOT EXISTS public.respuestas
+(
+    respuestas_id character(5) COLLATE pg_catalog."default" NOT NULL,
+    respuestas_v_f character(80) COLLATE pg_catalog."default",
+    vl integer,
+    lm integer,
+    ve integer,
+    cp integer,
+    m integer,
+    inter integer,
+    intra integer,
+    n integer,
+    respuestas_r character(20) COLLATE pg_catalog."default",
+    CONSTRAINT "Respuestas_pkey" PRIMARY KEY (respuestas_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.respuestas
+    OWNER to postgres;
